@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:background="@drawable/button_bg"
+    android:textAlignment="center"
+    android:id="@+id/inicioo"
+    android:layout_marginTop="@dimen/margin_pd"
+    android:layoutMode="opticalBounds"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#fff"
+        android:text="irruh"
+        android:id="@+id/textoo1"
+        android:clickable="true"
+        android:gravity="center"
+        android:textSize="@dimen/fonte"
+        android:enabled="false"
+        android:textIsSelectable="true"
+        android:layout_gravity="center" />
+
+
+</FrameLayout>

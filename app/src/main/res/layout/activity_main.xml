@@ -2,31 +2,59 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center_vertical"
     android:orientation="vertical">
 
-    <Button
-        android:id="@+id/button1"
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:textColor="#ffffff"
-        android:background="@drawable/button_bg"
-        android:text="Buttons" />
+        android:id="@+id/leiaute"
+        android:layout_gravity="center">
 
     <FrameLayout
-        android:layout_width="50dp"
+        android:layout_width="wrap_content"
         android:background="@drawable/button_bg"
-        android:layout_height="50dp">
+        android:textAlignment="center"
+        android:id="@+id/inicio"
+        android:layout_marginTop="@dimen/margin_pd"
+        android:layoutMode="opticalBounds"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="#fff"
             android:text="irruh"
-            />
+            android:id="@+id/texto1"
+            android:clickable="true"
+            android:gravity="center"
+            android:textSize="@dimen/fonte"
+            android:enabled="false"
+            android:textIsSelectable="true"
+            android:layout_gravity="center" />
 
-        <Tex
 
     </FrameLayout>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btadd1"
+        android:layout_toRightOf="@+id/inicio"
+        android:src="@android:drawable/ic_menu_add"
+        android:background="@drawable/bg_circle"/>
+
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btadel1"
+            android:src="@android:drawable/ic_menu_delete"
+            android:background="@drawable/bg_circle"
+            android:layout_alignBottom="@+id/inicio"
+            android:layout_toRightOf="@+id/inicio"
+            android:layout_toEndOf="@+id/inicio" />
+
+    </RelativeLayout>
 
 </LinearLayout>
