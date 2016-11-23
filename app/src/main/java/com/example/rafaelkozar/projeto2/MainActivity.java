@@ -1,7 +1,11 @@
 package com.example.rafaelkozar.projeto2;
 
 import android.annotation.TargetApi;
+import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Build;
 import android.support.annotation.StringDef;
@@ -26,16 +30,11 @@ public class MainActivity extends AppCompatActivity {
     private ImageButton btAdd;
     private int count = 1;
     private final int sdk = Build.VERSION.SDK_INT;
-    private RelativeLayout leiaute;
     private int der[];
     private Canvas canvas;
     private ViewGroup inclusionViewGroup;
     private RelativeLayout leiaute;
-    /**
-     * ATTENTION: This was auto-generated to implement the App Indexing API.
-     * See https://g.co/AppIndexing/AndroidStudio for more information.
-     */
-    private GoogleApiClient client;
+
 
 
     @Override
@@ -44,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         //inclusionViewGroup = (ViewGroup) findViewById(R.id.leiaute);
        leiaute = (RelativeLayout) findViewById(R.id.leiaute);
+        final TesteActivity testeActivity = new TesteActivity(getApplicationContext(), null);
 
 
         btAdd = (ImageButton) findViewById(R.id.btadd1);
@@ -51,63 +51,26 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Log.i("Infor", "infor");
-                FrameLayout frameLayout = new FrameLayout()
-                leiaute.s
+
                 View child1 = LayoutInflater.from(getApplicationContext()).inflate(
                         R.layout.botao_layout, null);
-                child1.draw(canvas);
+                //child1.draw(canvas);
+                leiaute.addView(child1);
 
-                inclusionViewGroup.addView(child1);
+                Paint paint = new Paint();
+                paint.setColor(Color.parseColor("#CD5C5C"));
+                Bitmap bg = Bitmap.createBitmap(480, 800, Bitmap.Config.ARGB_8888);
+                Canvas canvas = new Canvas(bg);
+                testeActivity.draw(canvas);
+                leiaute.addView(testeActivity);
+                canvas.drawRect(50, 50, 500, 500, paint);
+                View v = new View(getApplicationContext());
+                leiaute.addView(v);
+                v.draw(canvas);
+
 
 
             }
         });
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
-        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
-    }
-
-    public void desenhar() {
-
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
-        client.connect();
-        Action viewAction = Action.newAction(
-                Action.TYPE_VIEW, // TODO: choose an action type.
-                "Main Page", // TODO: Define a title for the content shown.
-                // TODO: If you have web page content that matches this app activity's content,
-                // make sure this auto-generated web page URL is correct.
-                // Otherwise, set the URL to null.
-                Uri.parse("http://host/path"),
-                // TODO: Make sure this auto-generated app URL is correct.
-                Uri.parse("android-app://com.example.rafaelkozar.projeto2/http/host/path")
-        );
-        AppIndex.AppIndexApi.start(client, viewAction);
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
-        Action viewAction = Action.newAction(
-                Action.TYPE_VIEW, // TODO: choose an action type.
-                "Main Page", // TODO: Define a title for the content shown.
-                // TODO: If you have web page content that matches this app activity's content,
-                // make sure this auto-generated web page URL is correct.
-                // Otherwise, set the URL to null.
-                Uri.parse("http://host/path"),
-                // TODO: Make sure this auto-generated app URL is correct.
-                Uri.parse("android-app://com.example.rafaelkozar.projeto2/http/host/path")
-        );
-        AppIndex.AppIndexApi.end(client, viewAction);
-        client.disconnect();
     }
 }
