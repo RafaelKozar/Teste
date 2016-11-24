@@ -11,6 +11,7 @@ import android.util.AttributeSet;
 import android.view.View;
 
 public class TesteActivity extends View {
+    private int p1, p2, p3, p4;
 
     public TesteActivity(Context context) {
         super(context);
@@ -23,13 +24,21 @@ public class TesteActivity extends View {
         setFocusable(true);
     }
 
+    public void setP(int p1, int p2, int p3, int p4){
+        this.p1 = p1;
+        this.p2 = p2;
+        this.p3 = p3;
+        this.p4 = p4;
+    }
+
+
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
         Paint paint = new Paint();
-        paint.setColor(Color.parseColor("#CD5C5C"));
-        Bitmap bg = Bitmap.createBitmap(480, 800, Bitmap.Config.ARGB_8888);
-        canvas.drawRect(50, 50, 500, 500, paint);
+        paint.setColor(Color.parseColor("#7799DF"));
+        //Bitmap bg = Bitmap.createBitmap(480, 800, Bitmap.Config.ARGB_8888);
+        canvas.drawRect(p1, p2, p3, p4, paint);
     }
 }

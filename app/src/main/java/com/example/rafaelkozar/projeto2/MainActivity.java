@@ -57,13 +57,16 @@ public class MainActivity extends AppCompatActivity {
                 //child1.draw(canvas);
                 leiaute.addView(child1);
 
-                Paint paint = new Paint();
-                paint.setColor(Color.parseColor("#CD5C5C"));
-                Bitmap bg = Bitmap.createBitmap(480, 800, Bitmap.Config.ARGB_8888);
-                Canvas canvas = new Canvas(bg);
+                Canvas canvas = new Canvas();
+                testeActivity.setP(150, 150, 600, 600);
+
                 testeActivity.draw(canvas);
-                leiaute.addView(testeActivity);
-                canvas.drawRect(50, 50, 500, 500, paint);
+                leiaute.addView(testeActivity, 300, 600);
+                TesteActivity maisUm = new TesteActivity(getApplicationContext(), null);
+                maisUm.setP(600, 600, 900, 900);
+
+                leiaute.addView(maisUm, 300, 600);
+
                 View v = new View(getApplicationContext());
                 leiaute.addView(v);
                 v.draw(canvas);
